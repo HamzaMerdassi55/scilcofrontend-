@@ -26,7 +26,7 @@ jobs:
 
       # Exécute une commande unique en utilisant le shell du runner
       - name: Construire l'image Docker (code source)
-        run: docker build -t front1 .
+        run: docker build -t front .
       
       # Exécute une commande unique en utilisant le shell du runner
       - name: Connexion à Docker Hub
@@ -37,7 +37,7 @@ jobs:
 
       # Exécute une commande unique en utilisant le shell du runner
       - name: Tag l'image Docker
-        run: docker tag front1 hamza6/front1:latest
+        run: docker tag front hamza6/front:latest
 
       # Exécute un ensemble de commandes en utilisant le shell du runner
       - name: Exécuter un script multi-lignes
