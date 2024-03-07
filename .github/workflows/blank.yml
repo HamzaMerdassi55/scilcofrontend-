@@ -39,8 +39,4 @@ jobs:
       - name: Tag l'image Docker
         run: docker tag front hamza6/front:latest
 
-      # Exécute un ensemble de commandes en utilisant le shell du runner
-      - name: Exécuter un script multi-lignes
-        run: |
-          echo Ajoutez d'autres actions pour construire,
-          echo tester et déployer votre projet.
+    
