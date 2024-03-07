@@ -52,8 +52,8 @@ jobs:
 
       needs: build-and-push
 
-      steps: 
-        
+      steps:
+
         - name: Deploy to EC2
           uses: appleboy/ssh-action@master
           with:
