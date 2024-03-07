@@ -39,7 +39,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Image from Docker (source code )
-        run: docker tag front1 hamza6/my-image-CICD:latest .
+        run: docker tag front hamza6/frontend-sqilco:latest .
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
