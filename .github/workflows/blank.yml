@@ -20,6 +20,7 @@ jobs:
 
     # Les étapes représentent une séquence de tâches qui seront exécutées dans le cadre du job
     steps:
+
       # Récupère votre dépôt sous $GITHUB_WORKSPACE, afin que votre job puisse y accéder
       - name: Cloner le projet dans ce runner
         uses: actions/checkout@v3
@@ -27,7 +28,7 @@ jobs:
       # Exécute une commande unique en utilisant le shell du runner
       - name: Construire l'image Docker (code source)
         run: docker build -t front .
-      
+
       # Exécute une commande unique en utilisant le shell du runner
       - name: Connexion à Docker Hub
         uses: docker/login-action@v3
@@ -37,6 +38,7 @@ jobs:
 
       # Exécute une commande unique en utilisant le shell du runner
       - name: Tag l'image Docker
-        run: docker tag front hamza6/front:latest
-
-    
+        run: docker tag front hamza6/my-image-cicd:latest
+      
+      - name: Veirfy
+        run: docker images
