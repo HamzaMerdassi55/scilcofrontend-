@@ -1,5 +1,3 @@
-# Ceci est un workflow de base pour vous aider à démarrer avec Actions
-
 name: CI
 
 # Contrôle quand le workflow sera déclenché
@@ -39,7 +37,7 @@ jobs:
 
       # Exécute une commande unique en utilisant le shell du runner
       - name: Tag l'image Docker
-        run: docker tag front1 hamza6/frontend-sqilco:latest
+        run: docker tag front1 hamza6/front1:latest
 
       # Exécute un ensemble de commandes en utilisant le shell du runner
       - name: Exécuter un script multi-lignes
