@@ -42,3 +42,6 @@ jobs:
       
       - name: Veirfy
         run: docker images
+
+      - name: Push Image To DockerHub
+        run: docker push hamza6/my-image-cicd:latest
