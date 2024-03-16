@@ -22,7 +22,7 @@ jobs:
     steps:
 
       # Récupère votre dépôt sous $GITHUB_WORKSPACE, afin que votre job puisse y accéder
-      - name: Checkout Code 
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       # Exécute une commande unique en utilisant le shell du runner
@@ -38,18 +38,18 @@ jobs:
 
       # Exécute une commande unique en utilisant le shell du runner
       - name: Tag image Docker
-        run: docker tag front ${{ secrets.DOCKER_USERNAME}}/my-image-cicd:latest
+        run: docker tag front hamza6/my-image-cicd:latest
 
       - name: Veirfy
         run: docker images
 
       - name: Push Image To DockerHub
-        run: docker push ${{ secrets.DOCKER_USERNAME}}/my-image-cicd:latest
+        run: docker push hamza6/my-image-cicd:latest
 
   deploy-to-aws:
 
       runs-on: ubuntu-latest
- 
+
       needs: build-and-push
 
       steps:
@@ -62,4 +62,4 @@ jobs:
             key: ${{ secrets.EC2_PRIVATE_KEY }}
             script: |
               sudo docker pull hamza6/my-image-cicd:latest
-              sudo docker run -d --name sqilco-frontend -p 3001:3000 ${{  secrets.DOCKER_USERNAME}}/my-image-cicd:latest
+              sudo docker run -d --name sqilco-frontend -p 3001:3000 hamza6/my-image-cicd:latest
