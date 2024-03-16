@@ -38,13 +38,13 @@ jobs:
 
       # Exécute une commande unique en utilisant le shell du runner
       - name: Tag image Docker
-        run: docker tag front hamza6/my-image-cicd:latest
+        run: docker tag front ${{secrets.DOCKER_USERNAME}}/my-image-cicd:latest
 
       - name: Veirfy
         run: docker images
 
       - name: Push Image To DockerHub
-        run: docker push hamza6/my-image-cicd:latest
+        run: docker push ${{secrets.DOCKER_USERNAME}}/my-image-cicd:latest
 
   deploy-to-aws:
 
@@ -61,5 +61,5 @@ jobs:
             username: ${{ secrets.EC2_USERNAM}}
             key: ${{ secrets.EC2_PRIVATE_KEY }}
             script: |
-              sudo docker pull hamza6/my-image-cicd:latest
-              sudo docker run -d --name sqilco-frontend -p 3001:3000 hamza6/my-image-cicd:latest
+              sudo docker pull hamza6/my-image-cicd
+              sudo docker run -d --name sqilco-frontend -p 3001:3000 ${{secrets.DOCKER_USERNAME}}/my-image-cicd:latest
