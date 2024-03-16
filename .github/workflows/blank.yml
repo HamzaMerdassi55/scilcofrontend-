@@ -61,5 +61,5 @@ jobs:
             username: ${{ secrets.EC2_USERNAM}}
             key: ${{ secrets.EC2_PRIVATE_KEY }}
             script: |
-              sudo docker pull hamza6/frontend-sqilco
-              sudo docker run -d --name frontend -p 3002:3001 hamza6/my-image-cicd:latest
+              sudo docker pull hamza6/my-image-cicd
+              sudo docker run -d --name frontend -p 3002:3001 ${{secrets.DOCKER_USERNAME}}/my-image-cicd:latest
